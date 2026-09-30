@@ -1,0 +1,968 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 193, 7, 0.25),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255, 64, 129, 0.22),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(124, 77, 255, 0.25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #17112b,
+            #24133f,
+            #111827
+        );
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9a9e,
+            #fad0c4,
+            #ffd1ff
+        );
+
+    z-index: 10;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+}
+
+
+.welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.welcome-card {
+    width: 90%;
+    max-width: 500px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+
+.gift {
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    animation: bounce 1.5s infinite;
+}
+
+
+.welcome-card h1 {
+    font-size: 42px;
+
+    margin: 10px 0;
+
+    color: #d84315;
+}
+
+
+.welcome-card p {
+    font-size: 20px;
+
+    color: #555;
+
+    margin-bottom: 30px;
+}
+
+
+button {
+    border: none;
+
+    padding: 16px 30px;
+
+    border-radius: 50px;
+
+    background: #e65100;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(230, 81, 0, 0.3);
+
+    transition: transform 0.2s ease;
+}
+
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   MAIN INVITATION
+========================= */
+
+.invitation {
+    position: relative;
+
+    width: 92%;
+    max-width: 600px;
+
+    margin: 20px auto;
+
+    padding: 55px 30px 35px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(255, 193, 7, 0.30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255, 64, 129, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(124, 77, 255, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fff8ed,
+            #ffeef3
+        );
+
+    border-radius: 30px;
+
+    border: 2px solid rgba(230, 81, 0, 0.25);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.18);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.8s ease;
+
+    overflow: hidden;
+}
+
+
+.invitation.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================
+   TOP CAPTION
+========================= */
+
+.side-caption {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    padding: 8px 16px;
+
+    color: #d84315;
+
+    background:
+        rgba(255, 255, 255, 0.55);
+
+    border-radius: 18px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    line-height: 1.25;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   PHOTO + CROWN
+========================= */
+
+.photo-area {
+    position: relative;
+
+    display: inline-block;
+
+    margin-top: 5px;
+}
+
+
+.deepak-photo {
+    width: 130px;
+    height: 130px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #ffb74d;
+
+    margin: 10px auto 20px;
+
+    display: block;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.crown {
+    position: absolute;
+
+    top: -28px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 30px;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   INVITATION BANNER
+========================= */
+
+.invite-banner {
+    display: inline-block;
+
+    padding: 9px 22px;
+
+    margin: 5px 0 12px;
+
+    background: #fff;
+
+    color: #d84315;
+
+    border-radius: 25px;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+.small-title {
+    letter-spacing: 4px;
+
+    font-size: 13px;
+
+    color: #e65100;
+
+    font-weight: bold;
+
+    margin: 5px 0;
+}
+
+
+.invitation h1 {
+    font-size: 40px;
+
+    line-height: 1.05;
+
+    margin: 10px 0;
+
+    color: #d84315;
+}
+
+
+/* =========================
+   ₹10K
+========================= */
+
+.money {
+    display: inline-block;
+
+    color: #e65100;
+
+    font-size: 45px;
+
+    font-weight: 900;
+
+    margin: 8px 0;
+
+    animation: moneyPulse 1.5s infinite;
+}
+
+
+.celebration-text {
+    font-size: 18px;
+
+    line-height: 1.4;
+
+    color: #333;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   EVENT DETAILS
+========================= */
+
+.details {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    background:
+        rgba(255, 248, 235, 0.95);
+
+    border-radius: 22px;
+
+    padding: 22px 12px;
+
+    margin: 25px 0 20px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.detail-item {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding: 5px 8px;
+
+    border-right:
+        1px solid rgba(230, 81, 0, 0.18);
+}
+
+
+.detail-item:last-child {
+    border-right: none;
+}
+
+
+.detail-icon {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+.detail-label {
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #777;
+
+    margin-bottom: 5px;
+}
+
+
+.detail-item strong {
+    font-size: 15px;
+
+    color: #333;
+
+    line-height: 1.35;
+}
+
+
+/* =========================
+   LOCATION BUTTON
+========================= */
+
+.venue-link {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    background: #e65100;
+
+    color: white !important;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    text-decoration: none !important;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 4px 10px rgba(230, 81, 0, 0.25);
+
+    transition: 0.2s ease;
+}
+
+
+.venue-link:hover {
+    background: #f57c00;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   CELEBRATION BANNER
+========================= */
+
+.celebrate-banner {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 11px 20px;
+
+    background: #e65100;
+
+    color: white;
+
+    border-radius: 25px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 6px 15px rgba(230, 81, 0, 0.25);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer-text {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 9px 22px;
+
+    border-radius: 25px;
+
+    background: #fff;
+
+    color: #d84315;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+#confetti {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 20;
+}
+
+
+.confetti-piece {
+    position: absolute;
+
+    top: -20px;
+
+    width: 10px;
+
+    height: 16px;
+
+    background: #ff6f00;
+
+    animation: fall linear forwards;
+}
+
+
+.confetti-piece:nth-child(3n) {
+    background: #ff4081;
+}
+
+
+.confetti-piece:nth-child(3n + 1) {
+    background: #7c4dff;
+}
+
+
+.confetti-piece:nth-child(3n + 2) {
+    background: #00a884;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+@keyframes moneyPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+@keyframes fall {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+
+        overflow-y: auto;
+    }
+
+
+    .invitation {
+        width: 94%;
+
+        max-width: 430px;
+
+        margin: 12px auto;
+
+        padding: 35px 14px 25px;
+
+        border-radius: 24px;
+    }
+
+
+    .side-caption {
+        font-size: 13px;
+
+        padding: 7px 13px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .deepak-photo {
+        width: 110px;
+
+        height: 110px;
+
+        border-width: 4px;
+
+        margin-bottom: 14px;
+    }
+
+
+    .crown {
+        top: -23px;
+
+        font-size: 25px;
+    }
+
+
+    .invite-banner {
+        font-size: 22px;
+
+        padding: 8px 17px;
+    }
+
+
+    .small-title {
+        font-size: 11px;
+
+        letter-spacing: 3px;
+
+        margin-top: 10px;
+    }
+
+
+    .invitation h1 {
+        font-size: 32px;
+
+        line-height: 1.05;
+
+        margin: 8px 0;
+    }
+
+
+    .money {
+        font-size: 42px;
+
+        margin: 6px 0;
+    }
+
+
+    .celebration-text {
+        font-size: 15px;
+
+        line-height: 1.4;
+    }
+
+
+    .details {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 3px;
+
+        padding: 16px 5px;
+
+        margin: 20px 0 18px;
+
+        border-radius: 18px;
+    }
+
+
+    .detail-item {
+        padding: 3px 4px;
+    }
+
+
+    .detail-icon {
+        font-size: 23px;
+
+        margin-bottom: 5px;
+    }
+
+
+    .detail-label {
+        font-size: 8px;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    .detail-item strong {
+        font-size: 11px;
+
+        line-height: 1.3;
+    }
+
+
+    .venue-link {
+        margin-top: 7px;
+
+        padding: 6px 7px;
+
+        font-size: 7px;
+
+        border-radius: 14px;
+    }
+
+
+    .celebrate-banner {
+        font-size: 17px;
+
+        padding: 9px 14px;
+
+        margin-top: 8px;
+    }
+
+
+    .footer-text {
+        font-size: 16px;
+
+        padding: 8px 18px;
+
+        margin-top: 9px;
+    }
+
+    .celebration-text {
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+}
+
+/* ===== LAYOUT FIX ===== */
+
+.side-caption {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 15px;
+}
+
+.photo-area {
+    display: block;
+    width: fit-content;
+    margin: 5px auto 0;
+}
+
+.invite-banner {
+    display: block;
+    width: fit-content;
+    margin: 5px auto 14px;
+
+    padding: 10px 28px;
+
+    background: #ffbf24;
+    color: #222;
+
+    border-radius: 12px;
+
+    font-size: 26px;
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 15px rgba(230, 81, 0, 0.18);
+
+    transform: rotate(-1deg);
+}
+
+@media (max-width: 600px) {
+
+    .invite-banner {
+        font-size: 22px;
+        padding: 8px 20px;
+    }
+
+}
+
+.celebrate-banner {
+    display: block;
+    width: fit-content;
+    margin: 15px auto 8px;
+}
+
+.footer-text {
+    display: block;
+    width: fit-content;
+    margin: 8px auto 0;
+}
+
+.money {
+    position: relative;
+
+    color: #e65100;
+
+    font-size: 52px;
+    font-weight: 900;
+
+    margin: 8px 0;
+
+    text-shadow:
+        2px 2px 0 #ffd54f,
+        4px 4px 10px rgba(230, 81, 0, 0.18);
+
+    animation: moneyPulse 1.5s infinite;
+}
+
+@media (max-width: 600px) {
+
+    .money {
+        font-size: 44px;
+    }
+
+    .celebration-text {
+    font-size: 14px;
+}
+
+}
+
+/* Decorative elements */
+
+.decorations {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.decorations span {
+    position: absolute;
+
+    font-size: 18px;
+
+    opacity: 0.7;
+
+    animation: sparkle 2.5s ease-in-out infinite;
+}
+
+.decorations span:nth-child(1) {
+    top: 8%;
+    left: 8%;
+}
+
+.decorations span:nth-child(2) {
+    top: 18%;
+    right: 8%;
+}
+
+.decorations span:nth-child(3) {
+    top: 38%;
+    left: 6%;
+}
+
+.decorations span:nth-child(4) {
+    top: 52%;
+    right: 7%;
+}
+
+.decorations span:nth-child(5) {
+    bottom: 20%;
+    left: 8%;
+}
+
+.decorations span:nth-child(6) {
+    bottom: 8%;
+    right: 10%;
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.25) rotate(15deg);
+        opacity: 0.9;
+    }
+
+}
+
+.celebration-text {
+    display: block;
+
+    margin: 2px auto 20px;
+    padding: 0;
+
+    background: transparent;
+    color: #444;
+
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    box-shadow: none;
+    transform: none;
+}
